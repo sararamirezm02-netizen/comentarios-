@@ -1,3 +1,55 @@
+def buscar_palabra():
+    """Opción 3: Busca comentarios que contengan una palabra indicada."""
+    if len(comentarios) == 0:
+        print("No hay comentarios registrados para buscar.")
+        return
+
+    palabra = input("Ingrese la palabra que desea buscar: ").strip().lower()
+    encontrados = False
+
+    print(f'Resultados de búsqueda para: "{palabra}"-')
+    for i in range(len(comentarios)):
+        if palabra in comentarios[i].lower():
+            print(f"Comentario [{i + 1}]: {comentarios[i]}")
+            encontrados = True
+
+    if not encontrados:
+        print("No se encontraron comentarios que contengan esa palabra.")
+
+def mostrar_cantidad_palabras():
+    """Opción 4: Muestra la cantidad de palabras de cada comentario."""
+    if len(comentarios) == 0:
+        print("No hay comentarios registrados.")
+    else:
+        print("Cantidad de palabras por comentario")
+        for i in range(len(comentarios)):
+            palabras = comentarios[i].split()
+            print(f"Comentario {i + 1}: {len(palabras)} palabras")
+
+def contar_palabra_en_comentario():
+    """Opción 5: Cuenta cuántas veces aparece una palabra en un comentario seleccionado."""
+    if len(comentarios) == 0:
+        print("No hay comentarios registrados.")
+        return
+
+    mostrar_comentarios()
+    try:
+        seleccion = int(input("Seleccione el número del comentario a analizar: "))
+        if seleccion < 1 or seleccion > len(comentarios):
+            print("Número de comentario inválido.")
+            return
+        
+        comentario_elegido = comentarios[seleccion - 1]
+        palabra = input("¿Qué palabra desea contar en este comentario? ").strip().lower()
+        
+        palabras_lista = comentario_elegido.lower().split()
+        conteo = palabras_lista.count(palabra)
+        
+        print(f"La palabra '{palabra}' aparece {conteo} vez/veces en el comentario seleccionado.")
+    except ValueError:
+        print("Por favor, ingrese un número válido.")
+
+
 def generar_resumen():
     """Opción 6: Genera un resumen almacenado en una tupla (caracteres, palabras, apariciones)."""
     if len(comentarios) == 0:
