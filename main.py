@@ -68,8 +68,7 @@ def contar_palabra_en_comentario():
         print(f"La palabra '{palabra}' aparece {conteo} vez/veces en el comentario seleccionado.")
     except ValueError:
         print("Por favor, ingrese un número válido.")
-
-
+        
 def generar_resumen():
     """Opción 6: Genera un resumen almacenado en una tupla (caracteres, palabras, apariciones)."""
     if len(comentarios) == 0:
