@@ -1,3 +1,23 @@
+comentarios = []
+
+def registrar_comentario():
+    """Opción 1: Registra un nuevo comentario si no está vacío."""
+    texto = input("Escriba el comentario: ").strip()
+    if texto != "":
+        comentarios.append(texto)
+        print("¡Comentario registrado con éxito!")
+    else:
+        print("El comentario no puede estar vacío.")
+
+def mostrar_comentarios():
+    """Opción 2: Muestra todos los comentarios registrados con su índice."""
+    if len(comentarios) == 0:
+        print("No hay comentarios registrados.")
+    else:
+        print("Lista de comentarios")
+        for i in range(len(comentarios)):
+            print(f"{i + 1}. {comentarios[i]}")
+            
 def buscar_palabra():
     """Opción 3: Busca comentarios que contengan una palabra indicada."""
     if len(comentarios) == 0:
